@@ -3,7 +3,7 @@ package net.ndisclose.removal_mod.mixin;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.biome.Climate;
-import net.ndisclose.removal_mod.Blacklists;
+import net.ndisclose.removal_mod.Removal.Blacklists;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;

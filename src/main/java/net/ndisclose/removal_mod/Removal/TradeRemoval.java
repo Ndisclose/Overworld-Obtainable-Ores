@@ -1,4 +1,4 @@
-package net.ndisclose.removal_mod;
+package net.ndisclose.removal_mod.Removal;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;

@@ -2,7 +2,7 @@ package net.ndisclose.removal_mod.item;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.world.item.ItemStack;
-import net.ndisclose.removal_mod.Blacklists;
+import net.ndisclose.removal_mod.Removal.Blacklists;
 
 public class InventorySanitization {
     public static void initialize() {

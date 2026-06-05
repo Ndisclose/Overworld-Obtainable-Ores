@@ -5,7 +5,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
-import net.ndisclose.removal_mod.Blacklists;
+import net.ndisclose.removal_mod.Removal.Blacklists;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;

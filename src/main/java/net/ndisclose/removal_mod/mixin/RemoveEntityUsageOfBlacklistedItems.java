@@ -2,7 +2,7 @@ package net.ndisclose.removal_mod.mixin;
 
 import net.minecraft.world.entity.ai.goal.UseItemGoal;
 import net.minecraft.world.item.ItemStack;
-import net.ndisclose.removal_mod.Blacklists;
+import net.ndisclose.removal_mod.Removal.Blacklists;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

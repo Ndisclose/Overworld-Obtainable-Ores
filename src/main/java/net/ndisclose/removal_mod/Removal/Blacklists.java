@@ -1,4 +1,4 @@
-package net.ndisclose.removal_mod;
+package net.ndisclose.removal_mod.Removal;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;

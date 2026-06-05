@@ -1,6 +1,6 @@
 package net.ndisclose.removal_mod.item;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
-import net.ndisclose.removal_mod.Blacklists;
+import net.ndisclose.removal_mod.Removal.Blacklists;
 
 public class CreativeMenuSanitization {
     public static void initialize() {
