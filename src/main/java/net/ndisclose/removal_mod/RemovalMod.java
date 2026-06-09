@@ -29,5 +29,7 @@ public class RemovalMod implements ModInitializer {
         TradeRemoval.initialize();
         ModFeatures.initialize();
         OverWorldOreGeneration.generateOres();
+        ConfigManager.load();
+        LOGGER.info("Configuration manager loaded");
     }
 }

@@ -27,7 +27,7 @@ public abstract class StructureRemoval {
                     for (StructureSet.StructureSelectionEntry entry : set.structures()) {
 
                         Optional<ResourceKey<Structure>> key = entry.structure().unwrapKey();
-                        if (key.isPresent() && Blacklists.STRUCTURE_BLACKLIST.contains(
+                        if (key.isPresent() && Blacklists.getStructureBlacklist().contains(
                                 key.get().identifier())) {
                         return false;
                         }

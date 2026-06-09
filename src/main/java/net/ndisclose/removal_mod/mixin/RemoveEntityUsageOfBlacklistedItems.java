@@ -15,7 +15,7 @@ public abstract class RemoveEntityUsageOfBlacklistedItems {
     @Inject(method = "canUse", at = @At("HEAD"), cancellable = true)
     private void removeUsageOfBlacklistedItems(CallbackInfoReturnable<Boolean> cir) {
        ItemStack stack = ((UseItemGoalAccessor)(Object)this).getItem();
-       if (Blacklists.ITEM_BLACKLIST.contains(stack.getItem())) {
+       if (Blacklists.getItemBlacklist().contains(stack.getItem())) {
            cir.setReturnValue(false);
        }
     }

@@ -9,7 +9,7 @@ public class DisableUse {
     public static void initialize() {
         UseItemCallback.EVENT.register((player, level, hand) -> {
             ItemStack stack = player.getItemInHand(hand);
-            if (Blacklists.ITEM_BLACKLIST.contains(stack.getItem())) {
+            if (Blacklists.getItemBlacklist().contains(stack.getItem())) {
                 return InteractionResult.FAIL;
             }
             return InteractionResult.PASS;

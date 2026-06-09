@@ -11,10 +11,9 @@ public class SanitizeItemStack {
             return new ItemStack(Items.BOOK, stack.getCount());
         }
 
-        if (Blacklists.ITEM_BLACKLIST.contains(stack.getItem())) {
+        if (Blacklists.getItemBlacklist().contains(stack.getItem())) {
             return ItemStack.EMPTY;
         }
-
 
         if (!stack.isEnchanted()) {
             return stack;

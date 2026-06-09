@@ -10,7 +10,7 @@ public class InventorySanitization {
             server.getPlayerList().getPlayers().forEach(player -> {
                 for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
                     ItemStack stack = player.getInventory().getItem(i);
-                    if (Blacklists.ITEM_BLACKLIST.contains(stack.getItem()) || stack.isEnchanted()) {
+                    if (Blacklists.getItemBlacklist().contains(stack.getItem()) || stack.isEnchanted()) {
                         player.getInventory().setItem(i, SanitizeItemStack.sanitizeStack(stack));
                     }
                 }

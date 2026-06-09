@@ -6,7 +6,7 @@ public class EntityRemoval {
     public static void initialize() {
         ServerEntityEvents.ALLOW_LOAD.register(
                 (entity, level, spawnReason, isLoadedFromDisk) -> {
-                    if (Blacklists.ENTITY_BLACKLIST.contains(entity.getType())) {
+                    if (Blacklists.getEntityBlacklist().contains(entity.getType())) {
                         return false;
                     }
                     return true;

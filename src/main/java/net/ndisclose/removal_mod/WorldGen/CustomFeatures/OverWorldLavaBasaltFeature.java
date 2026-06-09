@@ -17,7 +17,7 @@ public class OverWorldLavaBasaltFeature extends Feature<NoneFeatureConfiguration
         BlockPos origin = context.origin();
         for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-8,-4,-8), origin.offset(8, 4, 8))) {
             if (level.getBlockState(pos).is(Blocks.LAVA)) {
-                for (int i = 0; i < context.random().nextInt((21) + 5); i++) {
+                for (int i = 0; i < context.random().nextInt(21) + 5; i++) {
                 BlockPos basaltPos = pos.offset(
                         context.random().nextInt(7) -3,
                         context.random().nextInt(5) -2,

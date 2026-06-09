@@ -1,203 +1,91 @@
 package net.ndisclose.removal_mod.Removal;
 
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.ndisclose.removal_mod.ConfigManager;
+import org.jspecify.annotations.Nullable;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Blacklists {
 
-    public static final Set<Identifier> FEATURE_BLACKLIST = Set.of(
-                Identifier.parse("minecraft:monster_room"),
-                Identifier.parse("minecraft:monster_room_deep")
-        );
+    public static final Set<Identifier> getFeatureBlacklist() {
+        return parseIdentifiers(ConfigManager.CONFIG.featureBlacklist);
+    }
+    public static final Set<Identifier> getBiomeBlacklist() {
+        return parseIdentifiers(ConfigManager.CONFIG.biomeBlacklist);
+    }
+    public static final Set<Identifier> getStructureBlacklist() {
+        return parseIdentifiers(ConfigManager.CONFIG.structureBlacklist);
+    }
 
-        public static final Set<EntityType<?>> ENTITY_BLACKLIST = Set.of(
-            EntityType.ALLAY,
-            EntityType.BLAZE,
-            EntityType.BOGGED,
-            EntityType.BREEZE,
-            EntityType.CAVE_SPIDER,
-            EntityType.ZOMBIE_NAUTILUS,
-            EntityType.CREEPER,
-            EntityType.DROWNED,
-            EntityType.ELDER_GUARDIAN,
-            EntityType.ENDERMAN,
-            EntityType.ENDERMITE,
-            EntityType.ENDER_DRAGON,
-            EntityType.EVOKER,
-            EntityType.GHAST,
-            EntityType.GIANT,
-            EntityType.GUARDIAN,
-            EntityType.HOGLIN,
-            EntityType.HUSK,
-            EntityType.MAGMA_CUBE,
-            EntityType.PHANTOM,
-            EntityType.PIGLIN,
-            EntityType.PIGLIN_BRUTE,
-            EntityType.PILLAGER,
-            EntityType.RAVAGER,
-            EntityType.SHULKER,
-            EntityType.SILVERFISH,
-            EntityType.SKELETON,
-            EntityType.SKELETON_HORSE,
-            EntityType.SLIME,
-            EntityType.SPIDER,
-            EntityType.STRAY,
-            EntityType.STRIDER,
-            EntityType.VEX,
-            EntityType.VINDICATOR,
-            EntityType.WARDEN,
-            EntityType.WITCH,
-            EntityType.WITHER,
-            EntityType.WITHER_SKELETON,
-            EntityType.ZOGLIN,
-            EntityType.ZOMBIE,
-            EntityType.ZOMBIE_HORSE,
-            EntityType.ZOMBIE_VILLAGER,
-            EntityType.ZOMBIFIED_PIGLIN,
-            EntityType.ILLUSIONER,
-            EntityType.CREAKING,
-            EntityType.SNIFFER
-    );
-    public static final Set<Item> ITEM_BLACKLIST = Set.of(
-            Items.ENCHANTED_BOOK,
-            Items.POTION,
-            Items.SPLASH_POTION,
-            Items.LINGERING_POTION,
-            Items.TIPPED_ARROW,
-            Items.EXPERIENCE_BOTTLE,
-            Items.ENDER_PEARL,
-            Items.ENDER_EYE,
-            Items.RECOVERY_COMPASS,
-            Items.TOTEM_OF_UNDYING,
-            Items.DRAGON_BREATH,
-            Items.GHAST_TEAR,
-            Items.BLAZE_ROD,
-            Items.BREEZE_ROD,
-            Items.BLAZE_POWDER,
-            Items.MAGMA_CREAM,
-            Items.NETHER_WART,
-            Items.FERMENTED_SPIDER_EYE,
-            Items.SPIDER_EYE,
-            Items.ROTTEN_FLESH,
-            Items.GLISTERING_MELON_SLICE,
-            Items.RABBIT_FOOT,
-            Items.PHANTOM_MEMBRANE,
-            Items.OMINOUS_BOTTLE,
-            Items.ENCHANTED_GOLDEN_APPLE,
-            Items.END_CRYSTAL,
-            Items.NETHER_STAR,
-            Items.BEACON,
-            Items.ZOMBIE_NAUTILUS_SPAWN_EGG,
-            Items.CONDUIT,
-            Items.HEART_OF_THE_SEA,
-            Items.NAUTILUS_SHELL,
-            Items.SHULKER_SHELL,
-            Items.CHORUS_FRUIT,
-            Items.POPPED_CHORUS_FRUIT,
-            Items.CHORUS_FLOWER,
-            Items.DRAGON_EGG,
-            Items.AMETHYST_SHARD,
-            Items.ECHO_SHARD,
-            Items.DISC_FRAGMENT_5,
-            Items.MUSIC_DISC_5,
-            Items.KNOWLEDGE_BOOK,
-            Items.ENCHANTING_TABLE,
-            Items.BREWING_STAND,
-            Items.LODESTONE,
-            Items.SCULK_SENSOR,
-            Items.CALIBRATED_SCULK_SENSOR,
-            Items.SCULK_CATALYST,
-            Items.SCULK_SHRIEKER,
-            Items.END_PORTAL_FRAME,
-            Items.CRYING_OBSIDIAN,
-            Items.RESPAWN_ANCHOR,
-            Items.TRIAL_SPAWNER,
-            Items.VAULT,
-            Items.OMINOUS_TRIAL_KEY,
-            Items.TRIAL_KEY,
-            Items.SPAWNER,
-            Items.ALLAY_SPAWN_EGG,
-            Items.BLAZE_SPAWN_EGG,
-            Items.BOGGED_SPAWN_EGG,
-            Items.BREEZE_SPAWN_EGG,
-            Items.CAVE_SPIDER_SPAWN_EGG,
-            Items.CREEPER_SPAWN_EGG,
-            Items.DROWNED_SPAWN_EGG,
-            Items.ELDER_GUARDIAN_SPAWN_EGG,
-            Items.ENDERMAN_SPAWN_EGG,
-            Items.ENDERMITE_SPAWN_EGG,
-            Items.ENDER_DRAGON_SPAWN_EGG,
-            Items.EVOKER_SPAWN_EGG,
-            Items.GHAST_SPAWN_EGG,
-            Items.GUARDIAN_SPAWN_EGG,
-            Items.HOGLIN_SPAWN_EGG,
-            Items.HUSK_SPAWN_EGG,
-            Items.MAGMA_CUBE_SPAWN_EGG,
-            Items.PHANTOM_SPAWN_EGG,
-            Items.PIGLIN_SPAWN_EGG,
-            Items.PIGLIN_BRUTE_SPAWN_EGG,
-            Items.PILLAGER_SPAWN_EGG,
-            Items.RAVAGER_SPAWN_EGG,
-            Items.SHULKER_SPAWN_EGG,
-            Items.SILVERFISH_SPAWN_EGG,
-            Items.SKELETON_SPAWN_EGG,
-            Items.SKELETON_HORSE_SPAWN_EGG,
-            Items.SLIME_SPAWN_EGG,
-            Items.SNIFFER_SPAWN_EGG,
-            Items.SPIDER_SPAWN_EGG,
-            Items.STRAY_SPAWN_EGG,
-            Items.STRIDER_SPAWN_EGG,
-            Items.VEX_SPAWN_EGG,
-            Items.VINDICATOR_SPAWN_EGG,
-            Items.WARDEN_SPAWN_EGG,
-            Items.WITCH_SPAWN_EGG,
-            Items.WITHER_SPAWN_EGG,
-            Items.WITHER_SKELETON_SPAWN_EGG,
-            Items.ZOGLIN_SPAWN_EGG,
-            Items.ZOMBIE_SPAWN_EGG,
-            Items.ZOMBIE_HORSE_SPAWN_EGG,
-            Items.ZOMBIE_VILLAGER_SPAWN_EGG,
-            Items.ZOMBIFIED_PIGLIN_SPAWN_EGG,
-            Items.CREAKING_SPAWN_EGG,
-            Items.BURN_POTTERY_SHERD,
-            Items.DANGER_POTTERY_SHERD,
-            Items.GUSTER_POTTERY_SHERD,
-            Items.HOWL_POTTERY_SHERD,
-            Items.MOURNER_POTTERY_SHERD,
-            Items.SKULL_POTTERY_SHERD,
-            Items.SCULK,
-            Items.SCULK_VEIN,
-            Items.CARVED_PUMPKIN,
-            Items.WITHER_ROSE,
-            Items.ZOMBIE_HEAD,
-            Items.SKELETON_SKULL,
-            Items.WITHER_SKELETON_SKULL,
-            Items.PLAYER_HEAD,
-            Items.CREEPER_HEAD,
-            Items.PIGLIN_HEAD,
-            Items.DRAGON_HEAD,
-            Items.SOUL_SAND,
-            Items.SOUL_SOIL,
-            Items.SOUL_TORCH,
-            Items.SOUL_LANTERN,
-            Items.SOUL_CAMPFIRE,
-            Items.NETHERRACK
-    );
-    public static final Set<Identifier> BIOME_BLACKLIST = Set.of(
-            Identifier.parse("minecraft:deep_dark")
-    );
-    public static final Set<Identifier> STRUCTURE_BLACKLIST = Set.of(
-            Identifier.parse("minecraft:ruined_portal"),
-            Identifier.parse("minecraft:swamp_hut"),
-            Identifier.parse("minecraft:mansion")
-    );
-    public static final Set<Block> BLOCK_BLACKLIST = ITEM_BLACKLIST.stream().map(item -> Block.byItem(item)).filter(block -> block != Blocks.AIR).collect(Collectors.toSet());
+    public static Set<EntityType<?>> getEntityBlacklist() {
+        return ConfigManager.CONFIG.entityBlacklist
+                .stream()
+                .map(Blacklists::safeParseIdentifier)
+                .filter(Objects::nonNull)
+                .map(id -> getRegistryValue(
+                        BuiltInRegistries.ENTITY_TYPE, id, "entity"
+                )).filter(Objects::nonNull)
+                .collect(Collectors.toSet());
+    }
 
+    public static final Set<Item> getItemBlacklist() {
+        return ConfigManager.CONFIG.itemBlacklist
+                .stream()
+                .map(Blacklists::safeParseIdentifier)
+                .filter(Objects::nonNull)
+                .map(id -> getRegistryValue(
+                        BuiltInRegistries.ITEM, id, "item"
+                )).filter(Objects::nonNull)
+                .collect(Collectors.toSet());
+    }
+
+    public static final Set<Block> getBlockBlacklist() {
+        return ConfigManager.CONFIG.blockBlacklist
+                .stream()
+                .map(Blacklists::safeParseIdentifier)
+                .filter(Objects::nonNull)
+                .map(id -> getRegistryValue(
+                        BuiltInRegistries.BLOCK, id, "block"
+                )).filter(Objects::nonNull)
+                .collect(Collectors.toSet());
+    }
+
+    public static Set<Identifier> parseIdentifiers(List<String> values) {
+        return values.stream()
+                .map(Blacklists::safeParseIdentifier)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toSet());
+    }
+    private static <T> @Nullable T getRegistryValue(
+            Registry<T> registry,
+            Identifier id,
+            String type
+    ) {
+        T value = registry.getValue(id);
+        if (!registry.containsKey(id)) {
+            System.err.println("[Removal Mod] Unknown " + type + " identifier: " + id);
+        }
+        return value;
+    }
+    private static @Nullable Identifier safeParseIdentifier(String value) {
+        try {
+            Identifier id = Identifier.tryParse(value);
+            if (id == null) {
+                System.err.println("[Removal Mod] Invalid idenrifier format: " + value);
+            }
+            return id;
+        } catch (Exception e) {
+            System.err.println("[Removal Mod] Failed to parse identifier: " + value);
+            return null;
+        }
+    }
 }

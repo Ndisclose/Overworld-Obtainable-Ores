@@ -28,7 +28,7 @@ public class FeatureRemoval {
                     List<Holder<PlacedFeature>> kept = step.stream()
                             .filter(featureHolder ->
                                     featureHolder.unwrapKey()
-                                            .map(key -> !Blacklists.FEATURE_BLACKLIST.contains(key.identifier()))
+                                            .map(key -> !Blacklists.getFeatureBlacklist().contains(key.identifier()))
                                             .orElse(true)
                             )
                             .toList();

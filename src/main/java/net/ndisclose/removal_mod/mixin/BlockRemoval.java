@@ -27,7 +27,8 @@ public abstract class BlockRemoval {
             int flags,
             CallbackInfoReturnable<Boolean> cir
     ) {
-        if (Blacklists.ITEM_BLACKLIST.stream().map(item -> Block.byItem(item)).filter(block -> block != Blocks.AIR).collect(Collectors.toSet()).contains(state.getBlock())) {
+        if (Blacklists.getItemBlacklist().stream().map(item -> Block.byItem(item)).filter(block -> block != Blocks.AIR).collect(Collectors.toSet()).contains(state.getBlock())
+        || Blacklists.getBlockBlacklist().contains(state.getBlock())) {
             cir.setReturnValue(false);
         }
     }

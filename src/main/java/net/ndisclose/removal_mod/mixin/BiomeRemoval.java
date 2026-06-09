@@ -29,7 +29,7 @@ public abstract class BiomeRemoval {
                             }
                             return holder.unwrapKey()
                                     .map(key ->
-                                            !Blacklists.BIOME_BLACKLIST.contains(
+                                            !Blacklists.getBiomeBlacklist().contains(
                                                     key.identifier()
                                             )
                                     )

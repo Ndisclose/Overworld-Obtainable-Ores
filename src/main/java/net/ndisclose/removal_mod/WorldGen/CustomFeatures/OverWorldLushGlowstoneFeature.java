@@ -18,7 +18,6 @@ public class OverWorldLushGlowstoneFeature extends Feature<NoneFeatureConfigurat
         BlockPos origin = context.origin();
         for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-4,-4,-4), origin.offset(4, 4, 4))) {
             if (level.getBlockState(pos).isAir()) {
-                BlockPos attached = pos.below();
                 for (int i = 0; i < context.random().nextInt((3) + 1); i++) {
                     BlockPos glowstonePos = pos.offset(
                             context.random().nextInt(3) - 1,

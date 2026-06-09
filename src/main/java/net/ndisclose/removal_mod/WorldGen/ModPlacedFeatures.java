@@ -22,7 +22,7 @@ public class ModPlacedFeatures {
         context.register(OverworldObtainableOres.OVERWORLD_QUARTZ_PLACED, new PlacedFeature(
                         overworldQuartzVein,
                         List.of(
-                                CountPlacement.of(4),
+                                CountPlacement.of(12),
                                 InSquarePlacement.spread(),
                                 HeightRangePlacement.uniform(
                                     VerticalAnchor.absolute(-32),
@@ -42,7 +42,7 @@ public class ModPlacedFeatures {
         context.register(OverworldObtainableOres.OVERWORLD_NETHERITE_PLACED, new PlacedFeature(
                         overworldAncientDebrisVein,
                         List.of(
-                                CountPlacement.of(3),
+                                CountPlacement.of(1),
                                 InSquarePlacement.spread(),
                                 HeightRangePlacement.uniform(
                                         VerticalAnchor.absolute(-64),
