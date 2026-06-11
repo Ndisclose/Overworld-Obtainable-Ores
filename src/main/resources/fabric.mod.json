@@ -1,30 +1,28 @@
 {
 	"schemaVersion": 1,
-	"id": "removal-mod",
+	"id": "overword-obtainable-ores",
 	"version": "${version}",
-	"name": "Removal Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Overworld Obtainable Ores",
+	"description": "A Minecraft Fabric mod that adds Nether ores to the Overworld.",
 	"authors": [
-		"Me!"
+		"Ndisclose"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/davidgoat7465-dot",
+		"sources": "https://github.com/davidgoat7465-dot/Feature-Remover"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/removal-mod/icon.png",
+	"icon": "assets/feature_remover/Overworld_Obtainable_Ores_Icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.ndisclose.removal_mod.RemovalMod"
+          "net.Ndisclose.overworld_obtainable_ores.OverworldObtainableOresMain"
 		],
 		"fabric-datagen": [
-			"net.ndisclose.removal_mod.RemovalModDataGenerator"
+          "net.Ndisclose.overworld_obtainable_ores.OverworldObtainableOresDataGenerator"
 		]
 	},
-	"mixins": [
-		"removal-mod.mixins.json"
-	],
+	"mixins": [],
 	"depends": {
 		"fabricloader": ">=0.19.2",
 		"minecraft": "~26.1.2",

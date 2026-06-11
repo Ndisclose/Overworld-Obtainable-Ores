@@ -1,9 +1,15 @@
-# Removal Mod
+# Overworld Obtainable Ores
 
-## Setup
+## Purpose
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+This mod aims to bring Nether exclusive ores to the Overworld.
+
+	- Blackstones now generates in underground blobs below deepslate, similair to Granite.
+	- Quartz generates in ore veins similair to Redstone.
+	- Basalt generates in blobs around underground lava pools.
+	- Glowstone generates in small veins hanging from Lush Cave ceilings.
+	- Ancient Debris generate in very small veins deep underground.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This mod is under the GNU General Public License v3 (GPL-3) (see LICENSE for full text).
