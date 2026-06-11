@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "overword-obtainable-ores",
-	"version": "${version}",
+	"version": "0.01.1.26.1.2",
 	"name": "Overworld Obtainable Ores",
 	"description": "A Minecraft Fabric mod that adds Nether ores to the Overworld.",
 	"authors": [
